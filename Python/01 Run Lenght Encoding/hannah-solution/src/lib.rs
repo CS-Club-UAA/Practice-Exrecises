@@ -47,11 +47,14 @@ pub fn decode(s: &str) -> Result<String, RleDecodingError> {
 			}
 		} else {
 			if let Some(top) = output.last() && top.1 == 0 {
-				return Err(RleDecodingError::NoNumber(s.to_string(), i));
+				return Err(RleDecodingError::NoNumber(s.to_string(), i+1));
 			} else {
 				output.push((c, 0));
 			}
 		}
+	}
+	if let Some(top) = output.last() && top.1 == 0 {
+		return Err(RleDecodingError::NoNumber(s.to_string(), s.len()))
 	}
 	Ok(output.into_iter().fold(String::new(), |mut string, (c, repeat)| {
 		let mut character = [0; 4];
@@ -89,7 +92,8 @@ mod tests {
 		let fail_cases = vec![
 			"b0e0t0",
 			"328",
-			"nyoom"
+			"nyoom",
+			"e"
 		];
 
 		for case in fail_cases {
