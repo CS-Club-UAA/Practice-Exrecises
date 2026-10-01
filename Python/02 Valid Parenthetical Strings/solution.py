@@ -35,7 +35,7 @@ def has_valid_parens(s: str) -> bool:
         ) - decrement depth, now at 0
         ) - decrement depth, now at -1
     |!| Warning: Depth fell below zero! |!|
-    So, let's impliment this in code'
+    So, let's impliment this in code
     """
 
     # Type hints aren't strictly necessary in Python, however,

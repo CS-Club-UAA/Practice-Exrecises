@@ -11,7 +11,7 @@ Write a function `has_valid_parens(s: str) -> bool` that determines if an inputt
 - Unclosed or unopened parentheses make a string invalid
 - An empty string is always considered to be valid
 - Nonparentheses characters may be present in the string
-- 
+
 ## Examples
 
 | Input                         | Output  |
